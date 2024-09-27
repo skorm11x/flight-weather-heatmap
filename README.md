@@ -6,7 +6,7 @@ An application to help correlate weather data with when you should plan sorties
 Sorties are often planned without much data/insight as to how weather has historically affected launches.
 We propose a simple open platform that will ingest historical weather data, and show data along with a 'heatmap' of ideal timeframes for when to launch sorties to prevent interference from weather.
 
-![weathermap](heatmap.jpeg)
+![weathermap](https://github.com/skorm11x/flight-weather-heatmap/blob/Dev/assets/img/heatmap.jpeg)
 
 ## Data Sources Used
 https://climate.af.mil and the 14th weather squadron
