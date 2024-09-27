@@ -162,10 +162,14 @@ class API:
         self.__df = self.__df.groupby(["type", "year", "month", "day"]).min().reset_index()
         self.__df = self.__df.groupby(["year", "month", "day"]).max().reset_index()
         if(daily):
+            self.__df = self.__df.select_dtypes(include=['number'])
             self.__df = self.__df.groupby(["month", "day"]).mean().reset_index()
             return self.__df[["month", "day", "canx"]]
         else:
+            self.__df = self.__df.select_dtypes(include=['number'])
             self.__df = self.__df.groupby(["month"]).mean().reset_index()
+            print("MONTHS")
+            print(self.__df.iloc[0])
         
             if(month):
                 return self.__df["canx"][0]

@@ -1,6 +1,7 @@
 django
 psycopg2-binary
 requests
+setuptools
 bs4
 dpd_static_support
 bootstrap4

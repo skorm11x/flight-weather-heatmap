@@ -14,7 +14,7 @@ Color = color.Color
 from matplotlib.colors import LinearSegmentedColormap
 from plotly_calplot import calplot
 
-token = ""
+token = "pk.eyJ1IjoiY2tvc2lrMTEiLCJhIjoiY20xbDFsN3FsMDBwOTJybjZodDM2NGRjbCJ9.nuycsW8fo64xpmcMQY7vDQ"
 red = Color("red")
 colorscale = list(red.range_to(Color("green"),10))
 base_colors = []
@@ -277,13 +277,20 @@ app.layout = html.Div([
                     drawBaseDropdown(bases),
                     drawBasemap(df_filtered_heatmap.loc[df_filtered_heatmap['base_text']==selected_base]),
 
+                    # dbc.Row([
+                    #     dbc.Col([
+                    #         drawAircraftDropdown(df_aircraft),
+                    #         drawNumSortiesField()
+                    #     ]),
+                    #     dbc.Col([drawBaseHistogram(selected_base)]),
+                    # ], no_gutters=True),
                     dbc.Row([
                         dbc.Col([
                             drawAircraftDropdown(df_aircraft),
                             drawNumSortiesField()
                         ]),
                         dbc.Col([drawBaseHistogram(selected_base)]),
-                    ], no_gutters=True),
+                    ]),
 
 
                 ], width=5, style={"height":"70%"}),
