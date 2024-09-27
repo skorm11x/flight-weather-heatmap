@@ -2,6 +2,7 @@ import os
 import csv
 import sqlite3
 import pandas as pd
+import numpy as np
 from .aircrafts import Aircrafts
 
 class API:
@@ -91,10 +92,25 @@ class API:
         return self.__cursor.fetchall()
 
     def getBases(self):
+        # self.__getBasesQuery = "SELECT DISTINCT base_text, latitude, longitude FROM " + self.__tableName
+        # self.__df = pd.read_sql(self.__getBasesQuery, self.__connection)
+        # self.__df = self.__df.loc[1:].reset_index(drop = True)
+        # self.__df[["latitude", "longitude"]] = self.__df[["latitude", "longitude"]].astype("float")
+        # return self.__df
         self.__getBasesQuery = "SELECT DISTINCT base_text, latitude, longitude FROM " + self.__tableName
         self.__df = pd.read_sql(self.__getBasesQuery, self.__connection)
         self.__df = self.__df.loc[1:].reset_index(drop = True)
-        self.__df[["latitude", "longitude"]] = self.__df[["latitude", "longitude"]].astype("float")
+        def safe_float(x):
+            try:
+                return float(x)
+            except ValueError:
+                return np.nan
+        # Handle latitude/ longitude import errors from csv, drop if wrong
+        self.__df["latitude"] = self.__df["latitude"].apply(safe_float)
+        self.__df["longitude"] = self.__df["longitude"].apply(safe_float)
+
+        self.__df = self.__df.dropna(subset=["latitude", "longitude"])
+        self.__df = self.__df.reset_index(drop=True)
         return self.__df
     
     def getAircraftData(self, aircraft):
