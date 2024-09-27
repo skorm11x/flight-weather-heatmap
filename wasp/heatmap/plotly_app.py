@@ -13,8 +13,11 @@ import colour as color
 Color = color.Color
 from matplotlib.colors import LinearSegmentedColormap
 from plotly_calplot import calplot
+from dotenv import load_dotenv
 
-token = "pk.eyJ1IjoiY2tvc2lrMTEiLCJhIjoiY20xbDFsN3FsMDBwOTJybjZodDM2NGRjbCJ9.nuycsW8fo64xpmcMQY7vDQ"
+load_dotenv()
+
+token = os.getenv('MAPBOX_TOKEN')
 red = Color("red")
 colorscale = list(red.range_to(Color("green"),10))
 base_colors = []
