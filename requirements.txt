@@ -7,6 +7,7 @@ dpd_static_support
 bootstrap4
 numpy
 pandas
+plotly
 dash
 django-plotly-dash
 Werkzeug

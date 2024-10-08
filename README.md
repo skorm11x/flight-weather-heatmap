@@ -16,6 +16,14 @@ https://noaa.org
 ### WARNING: You will need monthly_base_weather_data.csv and place it into /wasp/heatmap/ in order for the Sqllite databse to populate. (Create database function from /API/ is called to create the database). This is required before you can run the project and is also why the CI in the actions is failing.
 You will also need to create a map box api token in order for theme changing to work. https://docs.mapbox.com/help/getting-started/access-tokens/ 
 
+## heatmap.env
+Required for API keys and secrets
+
+Sample heatmap.env file
+```
+MAPBOX_TOKEN=<your mapbox api key here>
+```
+
 DOCKER
 From the root directory of the repository, run
 ```docker-compose up``` add ```--build``` if needed to rebuild the containers from scratch 

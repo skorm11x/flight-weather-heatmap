@@ -23,6 +23,8 @@ yarn-debug.log*
 yarn-error.log*
 
 #database
+/wasp/db.sqlite3
+/wasp/weatherData.db
 /data/db
 */super-linter.log
 super-linter.log
@@ -165,6 +167,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+heatmap.env
 .env
 .venv
 env/
