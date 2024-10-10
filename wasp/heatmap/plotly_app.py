@@ -1,19 +1,21 @@
-from dash import dcc, html
 import os
-from django_plotly_dash import DjangoDash
+
+import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
-
-import dash_bootstrap_components as dbc
-from dash.dependencies import Input, Output, ALL
 import plotly.express as px
 from .API.backendAPI import API
-import numpy as np
-import colour as color
-Color = color.Color
 from matplotlib.colors import LinearSegmentedColormap
-from plotly_calplot import calplot
 from dotenv import load_dotenv
+
+import dash_bootstrap_components as dbc
+from dash import dcc, html
+from dash.dependencies import Input, Output, ALL
+from django_plotly_dash import DjangoDash
+from plotly_calplot import calplot
+
+from colour import Color
+
 
 load_dotenv()
 

@@ -1,36 +1,37 @@
-[tool.poetry]
-name = "flight-weather-heatmap"
-version = "0.0.1"
-description = ""
-authors = ["Your Name <you@example.com>"]
-readme = "README.md"
-
-[tool.poetry.dependencies]
-python = "^3.12"
-numpy = ">=1.22.3,<2.0.0"
-django = ">=2.2,<5.0"
-dash = ">=2.0,<2.10"
-psycopg2-binary = "^2.9.9"
-requests = "^2.32.3"
-bs4 = "^0.0.2"
-dpd-static-support = "^0.0.5"
-bootstrap4 = "^0.1.0"
-pandas = "^2.2.3"
-django-plotly-dash = "^2.3.1"
-werkzeug = "^3.0.4"
-openpyxl = "^3.1.5"
-django-bootstrap-v5 = "^1.0.11"
-dash-core-components = "^2.0.0"
-dash-html-components = "^2.0.0"
-dash-bootstrap-components = "^1.6.0"
-scipy = "^1.14.1"
-colour = "^0.1.5"
-matplotlib = "^3.9.2"
-plotly-calplot = "^0.1.20"
-setuptools = "^75.1.0"
-python-dotenv = "^1.0.1"
-
-
 [build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "your_project_name"
+version = "0.1.0"
+description = "A brief description of your project"
+authors = [
+    { name="Your Name", email="your.email@example.com" }
+]
+dependencies = [
+    "bootstrap4",
+    "bs4",
+    "colour",
+    "dash",
+    "dash_bootstrap_components",
+    "dash_core_components",
+    "dash_html_components",
+    "django",
+    "django-bootstrap-v5",
+    "django-plotly-dash",
+    "dpd_static_support",
+    "matplotlib",
+    "numpy",
+    "openpyxl",
+    "pandas",
+    "plotly",
+    "plotly-calplot",
+    "psycopg2-binary",
+    "python-dotenv",
+    "requests",
+    "scipy",
+    "setuptools",
+    "Werkzeug"
+]
+
