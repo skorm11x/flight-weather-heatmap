@@ -26,6 +26,9 @@ From the ./wasp directory
 LOCAL TESTS
 ```python manage.py test```
 
+DJANGO TEST
+```python manage.py wasp.django_tests```
+
 ### Access the GUI
 Find the port used in mange.py or in the docker-compose.yml file.
 Example if docker compose was used: Go to browser and type ```http://localhost:8000/heatmap```
