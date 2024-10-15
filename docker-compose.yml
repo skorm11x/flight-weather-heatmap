@@ -11,11 +11,18 @@ services:
   web:
     container_name: heatmap-ui
     build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    command:
+      - /bin/sh
+      - -c
+      - |
+        python manage.py migrate
+        python manage.py runserver 0.0.0.0:8000
     volumes:
       - .:/flight-weather-heatmap
     ports:
       - "8000:8000"
+    env_file:
+      - heatmap.env
     environment:
       - POSTGRES_NAME=postgres
       - POSTGRES_USER=postgres
