@@ -18,6 +18,10 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+MONTHLY_DATA = "monthly_base_weather_data.csv"
+DAILY_DATA = "daily_base_weather_data.csv"
+AIRCRAFT_DATA = "aircraftdata.csv"
+
 token = os.getenv("MAPBOX_TOKEN")
 red = Color("red")
 colorscale = list(red.range_to(Color("green"), 10))
@@ -105,10 +109,14 @@ def drawText(text):
 
 # Data
 df1 = px.data.iris()
-df_heatmap = pd.read_csv(os.getcwd() + "/heatmap/monthly_base_weather_data.csv")
-df_heatmap_daily = pd.read_csv(os.getcwd() + "/heatmap/daily_base_weather_data.csv")
+data_folder = os.path.join(os.getcwd(), 'data')
+monthly_data_file = os.path.join(data_folder, MONTHLY_DATA)
+df_heatmap = pd.read_csv(monthly_data_file)
+daily_data_file = os.path.join(data_folder, DAILY_DATA)
+df_heatmap_daily = pd.read_csv(daily_data_file)
 df_heatmap["Marker Size"] = pd.Series([3 for x in range(len(df_heatmap.index))])
-df_aircraft = pd.read_csv(os.getcwd() + "/heatmap/aircraftdata.csv")
+aircraft_data_file = os.path.join(data_folder, AIRCRAFT_DATA)
+df_aircraft = pd.read_csv(aircraft_data_file)
 df_filtered_heatmap = df_heatmap.loc[df_heatmap["month"] == 1]
 df_base = df_heatmap.loc[df_heatmap["base_text"] == "BEALE"]
 selected_base = "BEALE AFB"

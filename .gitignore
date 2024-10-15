@@ -1,8 +1,11 @@
 # misc
 *.DS_Store
+# simply too massive tbd
+combined_weather_data.csv 
 
 #database
 /data/db
+*.db
 
 #dev
 /.idea
